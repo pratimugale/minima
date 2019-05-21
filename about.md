@@ -6,9 +6,9 @@ permalink: /about/
 
 My project aims to provide an API for different programming languages to load/unload firmware and communicate with the PRUs from User Space. A GUI application that runs on the terminal will also be provided for debugging the PRUs step by step.
 
-The mentors for the project are:
-Kumar Abhishek
-Zubeen Tolani (ZeekHuge) and
+The mentors for the project are: <br>
+Kumar Abhishek <br>
+Zubeen Tolani (ZeekHuge) and <br>
 Patryk Mężydło
 
 More about the project can be found at:
