@@ -7,3 +7,6 @@
 #
 layout: home
 ---
+<p align="center">
+  <img src="/assets/pratim_photo.jpg" width="350" title="Pratim">
+</p>
