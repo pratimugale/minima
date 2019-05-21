@@ -2,7 +2,7 @@ title: BeagleBoard.org, GSoC 2019
 author: Pratim Ugale
 email: pratim.ugale@gmail.com
 description: > # this means to ignore newlines until "show_exerpts:"
-  This is my personal website which I made after being selected as a Student Developer under the program, Google Summer of Code. I'll be developing open source code for BeagleBoard.org
+  This is my personal website which I made after being selected as a Student Developer under the program, Google Summer of Code. I'll be developing open source code for BeagleBoard.org for my project "PRU User Space API"
 
 show_excerpts: false # set to true to show excerpts on the homepage
 
