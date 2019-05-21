@@ -8,5 +8,5 @@
 layout: home
 ---
 <p align="center">
-  <img src="/assets/pratim_photo.jpg" width="200" height = "200" class = "animated fadeInDown" title="Pratim">
+  <img src="/assets/pratim_photo.jpg" width="200" height = "200" border-radius = "50%" alt = "Avatar" class = "animated fadeInDown" title="Pratim">
 </p>
