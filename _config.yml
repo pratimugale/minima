@@ -1,10 +1,8 @@
-title: Your awesome title
-author: GitHub User
-email: your-email@domain.com
+title: BeagleBoard.org, GSoC 2019
+author: Pratim Ugale
+email: pratim.ugale@gmail.com
 description: > # this means to ignore newlines until "show_exerpts:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  This is my personal website which I made after being selected as a Student Developer under the program, Google Summer of Code. I'll be developing open source code for BeagleBoard.org for my project "PRU User Space API"
 
 show_excerpts: false # set to true to show excerpts on the homepage
 
@@ -15,13 +13,13 @@ minima:
 
   # generate social links in footer
   social_links:
-    twitter: jekyllrb
-    github:  jekyll
+    twitter: pratimugaley
+    github:  pratimugale
     rss: rss
     # dribbble: jekyll
     # facebook: jekyll
     # flickr:   jekyll
-    # instagram: jekyll
+    instagram: pratimugale
     # linkedin: jekyll
     # pinterest: jekyll
     # youtube: jekyll
