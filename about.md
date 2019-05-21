@@ -4,15 +4,12 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+My project aims to provide an API for different programming languages to load/unload firmware and communicate with the PRUs from User Space. A GUI application that runs on the terminal will also be provided for debugging the PRUs step by step.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+The mentors for the project are:
+Kumar Abhishek
+Zubeen Tolani (ZeekHuge) and
+Patryk Mężydło
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+More about the project can be found at:
+[https://summerofcode.withgoogle.com/projects/#5163407328673792](https://summerofcode.withgoogle.com/projects/#5163407328673792)
