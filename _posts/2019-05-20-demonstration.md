@@ -7,7 +7,7 @@ Simple Highlight: `text`
 
 To write code snippets (ruby):
 
-{% highlight c %}
+{% highlight ruby %}
 def print_hi(name)
   puts "Hi, #{name}"
 end
