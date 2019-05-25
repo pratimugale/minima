@@ -43,6 +43,7 @@ minima:
 header_pages:
 - about.md
 - project_updates.md
+- notes.md
 
 
 # Build settings
