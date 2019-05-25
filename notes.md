@@ -17,3 +17,4 @@ The 'cloud9' directory is present in '/var/lib/cloud9/' when you log into the Be
   - Stop bits = 1
   - Parity = None
   - Flow control = None
+- Then click on 'Open'.
