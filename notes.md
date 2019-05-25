@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Project Updates
-permalink: /project_updates/
+title: Notes
+permalink: /notes/
 ---
 
-All the updates on the project progress will be made here.
+Notes
