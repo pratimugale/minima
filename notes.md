@@ -4,6 +4,11 @@ title: Notes
 permalink: /notes/
 ---
 
+To be added in documentation:
+- PRU cannot be stopped (`echo stop | sudo tee state`) when its status is `offline`.
+- PRU cannot be started (`echo start | sudo tee state`) when its status is `running`. Insted it must be stopped and started.
+
+
 1. Starting PRU: `echo "start" > state` won't work unless you are root user.<br>
 Instead do `echo "start" | sudo tee -a state`.<br>
 (This is in the directory(for pru0): `/sys/devices/platform/ocp/4a326004.pruss-soc-bus/4a300000.pruss/4a334000.pru/remoteproc/remoteproc1`)
