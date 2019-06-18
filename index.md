@@ -7,7 +7,7 @@
 #
 layout: home
 ---
-The project repoitory is [here](https://www.github.com/pratimugale/pruss-api).
+The project repository is [here](https://github.com/pratimugale/PRUSS-Bindings).
 <!-- <p align="center">
   <img src="/assets/pratim_photo1.jpg" width="200" height = "200" border-radius = "50%" alt = "Avatar" class = "animated fadeInDown" title="Pratim">
 </p> -->
