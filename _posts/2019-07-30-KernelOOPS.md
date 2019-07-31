@@ -146,3 +146,21 @@ Log:
 `virtio_rpmsg_bus virtio0: rpmsg host is online`
 `rpmsg_pru virtio0.rpmsg-pru.-1.31: new rpmsg_pru device: /dev/rpmsg_pru31`
 4. import prussd.py into another python program and try hardcoding the message.
+
+After booting: 
+`lsmod | grep pru` gives: 
+```
+pruss_soc_bus          16384  0
+pru_rproc              28672  0
+pruss                  16384  1 pru_rproc
+pruss_intc             16384  1 pru_rproc
+```
+Now, after running the example, `lsmod | grep pru` gives: 
+```
+rpmsg_pru              16384  0
+rpmsg_core             16384  2 rpmsg_pru,virtio_rpmsg_bus
+pruss_soc_bus          16384  0
+pru_rproc              28672  1
+pruss                  16384  1 pru_rproc
+pruss_intc             16384  1 pru_rproc
+```
