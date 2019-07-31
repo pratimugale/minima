@@ -136,3 +136,8 @@ Message from syslogd@beaglebone at Jul 31 04:06:26 ...
 
 
 ```
+
+Proceedings: 
+
+1. The kernel oops message shows up only when the BB is first booted. After that I tried unprobing and probing the pru_rproc, virtio_rpmsg_bus drivers and the oops message didn't show up.
+1. Wrote a program to initialize the PRU SRAM to 0 to check what values are being written to the PRU SRAM in the oops case.
