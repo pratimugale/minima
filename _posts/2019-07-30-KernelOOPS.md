@@ -137,7 +137,12 @@ Message from syslogd@beaglebone at Jul 31 04:06:26 ...
 
 ```
 
-Proceedings: 
+Log: 
 
 1. The kernel oops message shows up only when the BB is first booted. After that I tried unprobing and probing the pru_rproc, virtio_rpmsg_bus drivers and the oops message didn't show up.
-1. Wrote a program to initialize the PRU SRAM to 0 to check what values are being written to the PRU SRAM in the oops case.
+2. Wrote a program to initialize the PRU SRAM to 0 to check what values are being written to the PRU SRAM in the oops case.
+`No Values` were written to the PRU SRAM when the oops message shows up. Since the rpmsg program does the work of writing to the PRU SRAM, I think that no values were written to the RPMsg channel itself.
+3. The order of execution of these lines is changed in the above two dmesgs: <br>
+`virtio_rpmsg_bus virtio0: rpmsg host is online`
+`rpmsg_pru virtio0.rpmsg-pru.-1.31: new rpmsg_pru device: /dev/rpmsg_pru31`
+4. import prussd.py into another python program and try hardcoding the message.
