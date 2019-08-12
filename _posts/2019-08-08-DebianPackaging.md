@@ -24,6 +24,10 @@ EOF
 5. . ~/.bashrc
 
 7. dh_make -f ../pruapi-0.5.tar.gz
+8. sudo apt-get install build-essential
+9. dpkg-buildpackage -us -uc
+   For this, use change the format in debian/source/format from 3.0 (quilt) to 3.0 (native) if you do not want to use quilt. This solved the problem for me anyway.
+10. or, I used dpkg-buildpackage -b
 
 
 ### References:
