@@ -142,36 +142,47 @@ Message from syslogd@beaglebone at Jul 31 04:06:26 ...
 
 ```
 
-Log: 
+Note: 
 
 1. The order of execution of these lines is changed in the above two dmesgs: <br>
 `virtio_rpmsg_bus virtio0: rpmsg host is online`
 `rpmsg_pru virtio0.rpmsg-pru.-1.31: new rpmsg_pru device: /dev/rpmsg_pru31`
 
-After booting: 
-`lsmod | grep pru` gives: 
+The above logs are when the userspace program tries to write to the rpmsg_pru31 device file.
+For a simple rpmsg loopback program, the dmesg logs are: <br>
+
+After rebooting/removing rpmsg_pru from the kernel:
 ```
-pruss_soc_bus          16384  0
-pru_rproc              28672  0
-pruss                  16384  1 pru_rproc
-pruss_intc             16384  1 pru_rproc
-```
-Now, after successfully running the example, `lsmod | grep pru` gives: 
-```
-rpmsg_pru              16384  0
-rpmsg_core             16384  2 rpmsg_pru,virtio_rpmsg_bus
-pruss_soc_bus          16384  0
-pru_rproc              28672  1
-pruss                  16384  1 pru_rproc
-pruss_intc             16384  1 pru_rproc
+$ dmesg
+[ 2566.588639] pruss 4a300000.pruss: unconfigured system_events[63-0] = 0x00000000.000c0000
+[ 2566.588661] pruss 4a300000.pruss: unconfigured host_intr = 0x0000000a
+[ 2566.588699] remoteproc remoteproc2: stopped remote processor 4a338000.pru
+[ 2566.816301] remoteproc remoteproc2: powering up 4a338000.pru
+[ 2566.816892] remoteproc remoteproc2: Booting fw image am335x-pru1-fw, size 74056
+[ 2566.817749] pruss 4a300000.pruss: configured system_events[63-0] = 0x00000000.000c0000
+[ 2566.817763] pruss 4a300000.pruss: configured intr_channels = 0x0000000a host_intr = 0x0000000a
+[ 2566.828308] virtio_rpmsg_bus virtio0: creating channel rpmsg-pru addr 0x1
+[ 2566.828669] virtio_rpmsg_bus virtio0: rpmsg host is online
+[ 2566.828804] remoteproc remoteproc2: registered virtio0 (type 7)
+[ 2566.828815] remoteproc remoteproc2: remote processor 4a338000.pru is now up
+[ 2566.888331] rpmsg_pru virtio0.rpmsg-pru.-1.1: new rpmsg_pru device: /dev/rpmsg_pru1
+
 ```
 
-When the oops message occurs, `lsmod | grep pru` gives:
-``` 
-rpmsg_pru              16384  2
-rpmsg_core             16384  2 rpmsg_pru,virtio_rpmsg_bus
-pruss_soc_bus          16384  0
-pru_rproc              28672  1
-pruss                  16384  1 pru_rproc
-pruss_intc             16384  2 pru_rproc
+Subsequent compilation of rpmsg firmware:
+```
+$ dmesg
+[ 2514.410810] pruss 4a300000.pruss: unconfigured system_events[63-0] = 0x00000000.000c0000
+[ 2514.410832] pruss 4a300000.pruss: unconfigured host_intr = 0x0000000a
+[ 2514.410869] remoteproc remoteproc2: stopped remote processor 4a338000.pru
+[ 2516.645076] remoteproc remoteproc2: powering up 4a338000.pru
+[ 2516.645705] remoteproc remoteproc2: Booting fw image am335x-pru1-fw, size 74056
+[ 2516.650320] pruss 4a300000.pruss: configured system_events[63-0] = 0x00000000.000c0000
+[ 2516.650340] pruss 4a300000.pruss: configured intr_channels = 0x0000000a host_intr = 0x0000000a
+[ 2516.658817] virtio_rpmsg_bus virtio0: creating channel rpmsg-pru addr 0x1
+[ 2516.659739] rpmsg_pru virtio0.rpmsg-pru.-1.1: new rpmsg_pru device: /dev/rpmsg_pru1
+[ 2516.659915] virtio_rpmsg_bus virtio0: rpmsg host is online
+[ 2516.660017] remoteproc remoteproc2: registered virtio0 (type 7)
+[ 2516.660027] remoteproc remoteproc2: remote processor 4a338000.pru is now up
+
 ```
