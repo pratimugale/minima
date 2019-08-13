@@ -5,8 +5,9 @@ categories: GSoC
 ---
 
 ### dmesg logs:
+
+When PRU firmware is used for the first time after rebooting (or after rpmsg_pru module is removed from the kernel).
 ```
-// When showing the oops message:
 
 $ dmesg
 [  209.638868] remoteproc remoteproc2: powering up 4a338000.pru
@@ -52,9 +53,10 @@ $ dmesg
 [  210.093875] Code: 1a000012 e5953000 e1a02004 e59f1080 (e59301dc) 
 [  210.145550] ---[ end trace b62e60d2f08e12c2 ]---
 
+```
 
-// Second time onwards (No message shown):
-
+After the PRU firmware is recompiled and values are written into rpmsg_pru31:
+```
 [  210.145550] ---[ end trace b62e60d2f08e12c2 ]---
 [  334.539471] pruss 4a300000.pruss: unconfigured system_events[63-0] = 0x00000000.000c0000
 [  334.556965] pruss 4a300000.pruss: unconfigured host_intr = 0x0000000a
@@ -76,11 +78,12 @@ $ dmesg
 [  339.933318] remoteproc remoteproc1: remote processor 4a334000.pru is now up
 ```
 
-### kernel oops message:
+### Executing the userspace program looks like this:
 Getting the message after writing 15 values.
 
+Example9: [https://github.com/pratimugale/PRUSS-Bindings/tree/master/examples/firmware_examples/example9-multichannel-waveform-gen](https://github.com/pratimugale/PRUSS-Bindings/tree/master/examples/firmware_examples/example9-multichannel-waveform-gen) 
 ```
-$ ./test.o 
+$ ./userspace.o 
 Wave 1 Sample 0
 Wave 2 Sample 0
 Wave 3 Sample 0
@@ -139,13 +142,9 @@ Message from syslogd@beaglebone at Jul 31 04:06:26 ...
 
 Log: 
 
-1. The kernel oops message shows up only when the BB is first booted. After that I tried unprobing and probing the pru_rproc, virtio_rpmsg_bus drivers and the oops message didn't show up.
-2. Wrote a program to initialize the PRU SRAM to 0 to check what values are being written to the PRU SRAM in the oops case.
-`No Values` were written to the PRU SRAM when the oops message shows up. Since the rpmsg program does the work of writing to the PRU SRAM, I think that no values were written to the RPMsg channel itself.
-3. The order of execution of these lines is changed in the above two dmesgs: <br>
+1. The order of execution of these lines is changed in the above two dmesgs: <br>
 `virtio_rpmsg_bus virtio0: rpmsg host is online`
 `rpmsg_pru virtio0.rpmsg-pru.-1.31: new rpmsg_pru device: /dev/rpmsg_pru31`
-4. import prussd.py into another python program and try hardcoding the message.
 
 After booting: 
 `lsmod | grep pru` gives: 
