@@ -6,7 +6,8 @@ categories: GSoC
 
 ### dmesg logs:
 
-When PRU firmware is used for the first time after rebooting (or after rpmsg_pru module is removed from the kernel).
+When PRU firmware is used for the first time after rebooting (or after rpmsg_pru module is removed from the kernel).<br>
+i.e. undesired:
 ```
 
 $ dmesg
@@ -55,7 +56,8 @@ $ dmesg
 
 ```
 
-After the PRU firmware is recompiled and values are written into rpmsg_pru31:
+After the PRU firmware is recompiled and values are written into rpmsg_pru31:<br>
+i.e. desired:
 ```
 [  210.145550] ---[ end trace b62e60d2f08e12c2 ]---
 [  334.539471] pruss 4a300000.pruss: unconfigured system_events[63-0] = 0x00000000.000c0000
