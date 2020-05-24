@@ -21,4 +21,29 @@ Just for reference; the error messages encountered while running 'pruapi_1.0-2_a
 
 ---
 
-Solution
+Process for building package from source: 
+1. Download and install the kernel headers to build the kernel module. 
+   ```
+   debian@beaglebone:~$ sudo apt-get update
+   debian@beaglebone:~$ apt-cache search linux-headers-$(uname -r)
+   linux-headers-4.19.94-ti-r42 - Linux kernel headers for 4.19.94-ti-r42 on armhf
+   debian@beaglebone:~$ sudo apt-get install linux-headers-4.19.94-ti-r42
+   debian@beaglebone:~$ cd /usr/src/linux-headers-4.19.94-ti-r42
+   ```
+   Also `build` should now be visible in `/lib/modules/(uname -r)`
+   
+2. Use `checkinstall`. What checkinstall essentially does is that it runs `make install` and outputs a debian package with the binaries after asking a few questions. 
+
+3. `checkinstall` usually came pre-installed but it is not available on the Buster Image :( probably because it is not maintained (last commit 2016) and that it has security issues.
+   Check out https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=878487, and https://serverfault.com/questions/974651/checkinstall-package-in-debian-buster, checkinstall package for Debian Buster is now available thru buster-backports repo.
+   
+   Add backports to your sources.list:
+   `deb http://deb.debian.org/debian buster-backports main`
+   to your sources.list (or add a new file with the ".list" extension to /etc/apt/sources.list.d/) You can instead use https    when the apt-transport-https package is installed.
+
+   Run apt-get update
+   
+4. `sudo apt-get -t buster-backports install checkinstall`: Checkinstall should now finally be installed.
+   Important Resource: https://backports.debian.org/Instructions/
+   
+5. 
