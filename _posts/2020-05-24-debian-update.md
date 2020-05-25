@@ -35,7 +35,7 @@ Process for building package from source:
 2. Use `checkinstall`. What checkinstall essentially does is that it runs `make install` and outputs a debian package with the binaries after asking a few questions. 
 
 3. `checkinstall` usually came pre-installed but it is not available on the Buster Image :( probably because it is not maintained (last commit 2016) and that it has security issues.
-   Check out https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=878487, and https://serverfault.com/questions/974651/checkinstall-package-in-debian-buster, checkinstall package for Debian Buster is now available thru buster-backports repo.
+   Check out [https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=878487](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=878487), and [https://serverfault.com/questions/974651/checkinstall-package-in-debian-buster](https://serverfault.com/questions/974651/checkinstall-package-in-debian-buster), checkinstall package for Debian Buster is now available thru buster-backports repo.
    
    Add backports to your sources.list:
    `deb http://deb.debian.org/debian buster-backports main`
@@ -44,6 +44,6 @@ Process for building package from source:
    Run apt-get update
    
 4. `sudo apt-get -t buster-backports install checkinstall`: Checkinstall should now finally be installed.
-   Important Resource: https://backports.debian.org/Instructions/
+   Important Resource: [https://backports.debian.org/Instructions/](https://backports.debian.org/Instructions/)
    
 5. 
